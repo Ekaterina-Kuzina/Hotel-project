@@ -10,3 +10,7 @@
     border-radius: 16px;
     z-index: 100;
 }
+
+.form {
+    margin: 32px 0 0;
+}
