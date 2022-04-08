@@ -1,0 +1,52 @@
+.button{
+    position: relative;
+    width: 100%;
+    color: var(--white);
+    height: 50px;
+    background: var(--btn);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    color: #fff;
+    z-index: 1;
+}
+
+.button::before, .button::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--btn-hover);
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+}
+
+.button::after {
+    background: var(--btn-active)
+}
+
+.button:hover::before, .button:active::after {
+    opacity: 1;
+}
+
+.button span {
+    position: relative;
+    z-index: 3;
+}
+
+.exit__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+}
+
+.exit__icon {
+    width: 24px;
+    height: 24px;
+    background: url(../../icons/exit.svg) no-repeat;
+    background-size: contain;
+}
