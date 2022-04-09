@@ -60,6 +60,19 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active  {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+html {
+  height: -webkit-fill-available;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px;
+}
 
 @font-face {
   font-family: 'Roboto';

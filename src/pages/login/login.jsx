@@ -16,20 +16,22 @@ export default function Login() {
 
   const validate = (values) => {
     const error = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const regexForEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const regexForCyrillic = /[а-яё]+/i;
 
     if (!values.email) {
       error.email = "Заполните поле";
-    } else if (!regex.test(values.email)) {
+    } else if (!regexForEmail.test(values.email)) {
       error.email = " Неверный адрес почты";
     }
 
     if (!values.password) {
       error.password = "Заполните поле";
     } else if (values.password.length < 8) {
-      error.password = " Пароль должен быть минимум 8 символов";
+      error.password = "Пароль должен быть минимум 8 символов";
+    } else if (regexForCyrillic.test(values.password)) {
+      error.password = "Используйте латинские буквы и цифры";
     }
-
     return error;
   };
 
@@ -41,9 +43,17 @@ export default function Login() {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
+      localStorage.setItem("email", formValues.email);
+      localStorage.setItem("password", formValues.password);
       navigate("/hotels", { replace: true });
     }
   }, [formErrors]);
+
+  useEffect(() => {
+    if (localStorage.getItem("email") && localStorage.getItem("email")) {
+      navigate("/hotels", { replace: true });
+    }
+  }, []);
 
   return (
     <div className={loginStyle.login__page}>
