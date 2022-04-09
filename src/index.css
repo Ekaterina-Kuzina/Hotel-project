@@ -15,12 +15,18 @@
 }
 
 body {
-  min-height: 100vh;
+  position: relative;
+  height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-family: 'Roboto', sans-serif;
   color: var(--black);
   line-height: 1.5;
+  background: #E5E5E5;
+}
+
+#root{
+  height: 100%;
 }
 
 img {
@@ -69,7 +75,7 @@ html {
 }
 
 .container {
-  max-width: 1040px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 32px;
 }

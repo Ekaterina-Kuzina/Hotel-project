@@ -1,0 +1,87 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 99px;
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.image__wrapper{
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: #C4C4C4;
+    border-radius: 100%;
+}
+
+.image{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title{
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.date__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #878787;
+
+}
+
+.line{
+    display: block;
+    width: 9px;
+    height: 1px;
+    background: #C4C4C4;
+    border-radius: 2px;
+}
+
+.price__info{
+    position: relative;
+    align-self: flex-start;
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 43px;
+}
+
+.price__text{
+    margin-right: 8px;
+    font-weight: 300;
+    font-size: 11px;
+}
+
+.price__icon, .price__icon__active{
+    position: absolute;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(../../icons/heart.svg) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.price__icon__active{
+    background: url(../../icons/heart-active.svg) no-repeat;
+}
+
+.price__icon:hover{
+    background: url(../../icons/heart-hover.svg) no-repeat;
+    cursor: pointer;
+}
+
+.price__item{
+    font-size: 17px;
+}
