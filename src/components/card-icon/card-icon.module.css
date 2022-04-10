@@ -1,0 +1,14 @@
+.wrapper{
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: #C4C4C4;
+    border-radius: 100%;
+}
+
+.image{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

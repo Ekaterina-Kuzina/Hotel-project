@@ -2,3 +2,7 @@
     overflow: scroll;
     max-height: 529px;
 }
+.wrapper__favourite{
+    overflow: scroll;
+    max-height: 288px;
+}

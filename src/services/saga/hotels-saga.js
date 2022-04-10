@@ -16,6 +16,7 @@ function* sagaGetHotelsInfo(params) {
           checkIn: params.queryParams.checkIn,
           checkOut: params.queryParams.checkOut,
           currency: params.queryParams.currency,
+          lang: params.queryParams.lang,
         })}`
       ).then((res) => res.json());
     });

@@ -3,6 +3,8 @@ import {
   GET_HOTELS_INFO_SUCCESS,
   GET_HOTELS_INFO_FAILED,
   HOTELS_INFO,
+  ADD_FAVOURITE_HOTEL,
+  REMOVE_FAVOURITE_HOTEL,
 } from "../constants";
 
 const getHotelsInfo = () => {
@@ -21,4 +23,19 @@ const hotelsInfo = (data) => {
   return { type: HOTELS_INFO, queryParams: data };
 };
 
-export { getHotelsInfo, getHotelsInfoSuccess, getHotelsInfoError, hotelsInfo };
+const addFavouriteHotel = (hotelInfo) => {
+  return { type: ADD_FAVOURITE_HOTEL, favourite: hotelInfo };
+};
+
+const removeFavouriteHotel = (id) => {
+  return { type: REMOVE_FAVOURITE_HOTEL, hotelId: id };
+};
+
+export {
+  getHotelsInfo,
+  getHotelsInfoSuccess,
+  getHotelsInfoError,
+  hotelsInfo,
+  addFavouriteHotel,
+  removeFavouriteHotel,
+};

@@ -17,6 +17,12 @@
     border-radius: 16px;
 }
 
+.favourite{
+    height: 472px;
+    margin-top: 24px;
+    padding: 32px 18px 32px 32px;
+}
+
 .finder__item {
     margin-bottom: 20px;
 }
@@ -67,4 +73,14 @@
 .favourite__title {
     font-weight: 500;
     font-size: 24px;
+}
+
+.title{
+    margin: 28px 0;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.title span {
+    font-weight: 500;
 }

@@ -1,58 +1,43 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
+import { useDispatch } from "react-redux";
 import cardStyle from "./card.module.css";
-import homeIcon from "../../icons/home.svg";
-
-function declinationOfNum(n, textForms) {
-  const num = Math.abs(n) % 100;
-  const num1 = num % 10;
-  if (num > 10 && num < 20) {
-    return textForms[2];
-  }
-  if (num1 > 1 && num1 < 5) {
-    return textForms[1];
-  }
-  if (num1 === 1) {
-    return textForms[0];
-  }
-  return textForms[2];
-}
+import {
+  addFavouriteHotel,
+  removeFavouriteHotel,
+} from "../../services/actions";
 
 export default function Card({
-  hotelData: { hotelName, priceFrom, stars },
+  hotelData,
   numberOfDays,
+  children,
+  styleForCard,
 }) {
+  const dispatch = useDispatch();
   const [isActiveIcon, setIsActiveIcon] = useState(false);
-  const handleNumberOfDays = () => {
-    return `${numberOfDays} ${declinationOfNum(numberOfDays, [
-      "день",
-      "дня",
-      "дней",
-    ])}`;
-  };
 
-  const toggleIsActiveIcon = () => {
+  const handleOnClickBtn = () => {
+    if (isActiveIcon) {
+      dispatch(removeFavouriteHotel(hotelData.hotelId));
+    } else {
+      dispatch(addFavouriteHotel(hotelData));
+    }
     setIsActiveIcon(!isActiveIcon);
   };
+
   return (
-    <li className={cardStyle.wrapper}>
-      <div className={cardStyle.image__wrapper}>
-        <img src={homeIcon} alt="icon" className={cardStyle.image} />
-      </div>
+    <li
+      className={
+        styleForCard === "favouriteCardStyle"
+          ? `${cardStyle.wrapper__favourite}`
+          : `${cardStyle.wrapper}`
+      }
+    >
+      <div className={cardStyle.card_icon}>{children}</div>
 
-      <div>
-        <h4 className={cardStyle.title}>{hotelName}</h4>
-        <div className={cardStyle.date__info}>
-          <p>7 июля 2020</p>
-          <span className={cardStyle.line} />
-          <p>{handleNumberOfDays()}</p>
-        </div>
-
-        <Rating name="read-only" value={stars} readOnly />
-      </div>
-
-      <div className={cardStyle.price__info}>
+      <div className={cardStyle.card__info}>
+        <h4 className={cardStyle.title}>{hotelData.hotelName}</h4>
         <input
           type="button"
           className={
@@ -60,11 +45,25 @@ export default function Card({
               ? `${cardStyle.price__icon__active}`
               : `${cardStyle.price__icon}`
           }
-          onClick={toggleIsActiveIcon}
+          onClick={handleOnClickBtn}
         />
+      </div>
+
+      <div className={cardStyle.date__info}>
+        <p>7 июля 2020</p>
+        <span className={cardStyle.line} />
+        <p>
+          {numberOfDays === 1 ? `${numberOfDays} ${"день"}` : `${numberOfDays}`}
+        </p>
+      </div>
+
+      <div className={cardStyle.price__info}>
+        <Rating name="read-only" value={hotelData.stars} readOnly />
         <div className={cardStyle.price}>
           <p className={cardStyle.price__text}>Price:</p>
-          <span className={cardStyle.price__item}>{`${priceFrom} ₽`}</span>
+          <span
+            className={cardStyle.price__item}
+          >{`${hotelData.priceFrom} ₽`}</span>
         </div>
       </div>
     </li>
