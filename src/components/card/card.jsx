@@ -1,29 +1,42 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Rating from "@mui/material/Rating";
 import { useDispatch } from "react-redux";
 import cardStyle from "./card.module.css";
+import { declinationOfNum, areHotelOffersEqual } from "../../helper";
 import {
   addFavouriteHotel,
   removeFavouriteHotel,
 } from "../../services/actions";
 
 export default function Card({
+  favouriteHotelsData,
   hotelData,
-  numberOfDays,
   children,
   styleForCard,
 }) {
   const dispatch = useDispatch();
-  const [isActiveIcon, setIsActiveIcon] = useState(false);
+  const isFavourite =
+    styleForCard === "favouriteCardStyle" ||
+    favouriteHotelsData.find((item) => areHotelOffersEqual(item, hotelData));
 
   const handleOnClickBtn = () => {
-    if (isActiveIcon) {
-      dispatch(removeFavouriteHotel(hotelData.hotelId));
+    if (isFavourite) {
+      dispatch(removeFavouriteHotel(hotelData));
     } else {
       dispatch(addFavouriteHotel(hotelData));
     }
-    setIsActiveIcon(!isActiveIcon);
+  };
+
+  const getFullDate = (date) => {
+    return date.toLocaleString("ru", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  const handleNumberOfDays = (days) => {
+    return `${days} ${declinationOfNum(days, ["день", "дня", "дней"])}`;
   };
 
   return (
@@ -40,21 +53,23 @@ export default function Card({
         <h4 className={cardStyle.title}>{hotelData.hotelName}</h4>
         <input
           type="button"
-          className={
-            isActiveIcon
+          className={`${
+            isFavourite
               ? `${cardStyle.price__icon__active}`
               : `${cardStyle.price__icon}`
-          }
+          } ${
+            styleForCard === "favouriteCardStyle"
+              ? `${cardStyle.price__icon__active}`
+              : ""
+          }`}
           onClick={handleOnClickBtn}
         />
       </div>
 
       <div className={cardStyle.date__info}>
-        <p>7 июля 2020</p>
+        <p>{getFullDate(new Date(hotelData.checkIn))}</p>
         <span className={cardStyle.line} />
-        <p>
-          {numberOfDays === 1 ? `${numberOfDays} ${"день"}` : `${numberOfDays}`}
-        </p>
+        <p>{handleNumberOfDays(hotelData.numberOfDays)}</p>
       </div>
 
       <div className={cardStyle.price__info}>

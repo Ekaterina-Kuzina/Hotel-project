@@ -20,9 +20,14 @@ function* sagaGetHotelsInfo(params) {
         })}`
       ).then((res) => res.json());
     });
-    console.log(response);
-    yield put(getHotelsInfoSuccess(response));
-    console.log(" hiihih ");
+    const responseWithCheckIn = response.map((hotelInfo) => {
+      const temp = hotelInfo;
+      temp.checkIn = params.queryParams.checkIn;
+      temp.numberOfDays = params.queryParams.numberOfDays;
+      return temp;
+    });
+    console.log(responseWithCheckIn);
+    yield put(getHotelsInfoSuccess(responseWithCheckIn));
   } catch (error) {
     console.error(error);
     yield put(getHotelsInfoError());

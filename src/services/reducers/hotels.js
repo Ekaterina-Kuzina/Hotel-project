@@ -5,9 +5,10 @@ import {
   GET_HOTELS_INFO_FAILED,
   ADD_FAVOURITE_HOTEL,
   REMOVE_FAVOURITE_HOTEL,
+  SET_FAVOURITE_FILTER,
 } from "../constants";
 
-import imgs from "../../helper";
+import imgs, { FILTER_UP_STARS } from "../../helper";
 
 const initialStateForHotelsData = {
   hotels: [],
@@ -18,6 +19,7 @@ const initialStateForHotelsData = {
 
 const initialStateForFavouriteHotels = {
   favouriteHotels: [],
+  filter: FILTER_UP_STARS,
 };
 
 function hotelsData(state = initialStateForHotelsData, action) {
@@ -59,8 +61,13 @@ function favouriteHotels(state = initialStateForFavouriteHotels, action) {
       return {
         ...state,
         favouriteHotels: state.favouriteHotels.filter((hotel) => {
-          return hotel.hotelId !== action.hotelId;
+          return hotel !== action.hotelData;
         }),
+      };
+    case SET_FAVOURITE_FILTER:
+      return {
+        ...state,
+        filter: action.filterState,
       };
 
     default:

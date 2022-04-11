@@ -5,6 +5,7 @@ import {
   HOTELS_INFO,
   ADD_FAVOURITE_HOTEL,
   REMOVE_FAVOURITE_HOTEL,
+  SET_FAVOURITE_FILTER,
 } from "../constants";
 
 const getHotelsInfo = () => {
@@ -27,8 +28,18 @@ const addFavouriteHotel = (hotelInfo) => {
   return { type: ADD_FAVOURITE_HOTEL, favourite: hotelInfo };
 };
 
-const removeFavouriteHotel = (id) => {
-  return { type: REMOVE_FAVOURITE_HOTEL, hotelId: id };
+const removeFavouriteHotel = (data) => {
+  return {
+    type: REMOVE_FAVOURITE_HOTEL,
+    hotelData: data,
+  };
+};
+
+const setFavouriteFilter = (filterState) => {
+  return {
+    type: SET_FAVOURITE_FILTER,
+    filterState,
+  };
 };
 
 export {
@@ -38,4 +49,5 @@ export {
   hotelsInfo,
   addFavouriteHotel,
   removeFavouriteHotel,
+  setFavouriteFilter,
 };

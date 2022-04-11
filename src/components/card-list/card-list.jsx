@@ -7,6 +7,7 @@ export default function CardList({
   numberOfDays,
   children,
   styleForCard,
+  favouriteHotelsData,
 }) {
   return (
     <ul
@@ -21,6 +22,7 @@ export default function CardList({
           styleForCard={styleForCard}
           numberOfDays={numberOfDays}
           hotelData={hotelData}
+          favouriteHotelsData={favouriteHotelsData}
           key={hotelData.hotelId}
         >
           {children}

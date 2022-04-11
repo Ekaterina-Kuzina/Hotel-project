@@ -5,6 +5,7 @@ import {
   hotelsInfo,
   addFavouriteHotel,
   removeFavouriteHotel,
+  setFavouriteFilter,
 } from "./hotels";
 
 export {
@@ -14,4 +15,5 @@ export {
   hotelsInfo,
   addFavouriteHotel,
   removeFavouriteHotel,
+  setFavouriteFilter,
 };

@@ -1,4 +1,4 @@
-.button{
+.button {
     position: relative;
     width: 100%;
     height: 50px;
@@ -10,7 +10,8 @@
     z-index: 1;
 }
 
-.button::before, .button::after{
+.button::before,
+.button::after {
     position: absolute;
     content: '';
     top: 0;
@@ -28,7 +29,8 @@
     background: var(--btn-active)
 }
 
-.button:hover::before, .button:active::after {
+.button:hover::before,
+.button:active::after {
     opacity: 1;
 }
 
@@ -49,4 +51,62 @@
     height: 24px;
     background: url(../../icons/exit.svg) no-repeat;
     background-size: contain;
+}
+
+.filter__btn {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #41522E;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 8px;
+}
+
+.filter__icon__up__enabled{
+    display: block;
+    width: 8px;
+    height: 6px;
+    margin-left: 10px;
+    background-size: contain;
+    background: url(../../icons/arrow-up.svg) no-repeat;
+}
+
+.filter__icon__up__disabled{
+    display: block;
+    width: 8px;
+    height: 6px;
+    margin-left: 10px;
+    background-size: contain;
+    background: url(../../icons/arrow-up.svg) no-repeat;
+    filter: invert(79%) sepia(0%) saturate(0%) hue-rotate(173deg) brightness(99%) contrast(111%);
+}
+
+.filter__icon__down__enabled{
+    display: block;
+    width: 8px;
+    height: 6px;
+    margin-left: 10px;
+    background-size: contain;
+    background: url(../../icons/arrow-down.svg) no-repeat;
+}
+
+.filter__icon__down__disabled{
+    display: block;
+    width: 8px;
+    height: 6px;
+    margin-left: 10px;
+    background-size: contain;
+    background: url(../../icons/arrow-down.svg) no-repeat;
+    filter: invert(79%) sepia(0%) saturate(0%) hue-rotate(173deg) brightness(99%) contrast(111%);
+}
+
+.filter__button__disabled{
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 8px;
+    border: 1px solid ;
+    filter: invert(79%) sepia(0%) saturate(0%) hue-rotate(173deg) brightness(99%) contrast(111%);
 }
