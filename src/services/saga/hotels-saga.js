@@ -8,7 +8,6 @@ import {
 function* sagaGetHotelsInfo(params) {
   try {
     yield put(getHotelsInfo());
-    console.log(params);
     const response = yield call(() => {
       return fetch(
         `http://engine.hotellook.com/api/v2/cache.json?${new URLSearchParams({
@@ -20,14 +19,13 @@ function* sagaGetHotelsInfo(params) {
         })}`
       ).then((res) => res.json());
     });
-    const responseWithCheckIn = response.map((hotelInfo) => {
+    const responseWithCheckInAndNumberOfDays = response.map((hotelInfo) => {
       const temp = hotelInfo;
       temp.checkIn = params.queryParams.checkIn;
       temp.numberOfDays = params.queryParams.numberOfDays;
       return temp;
     });
-    console.log(responseWithCheckIn);
-    yield put(getHotelsInfoSuccess(responseWithCheckIn));
+    yield put(getHotelsInfoSuccess(responseWithCheckInAndNumberOfDays));
   } catch (error) {
     console.error(error);
     yield put(getHotelsInfoError());

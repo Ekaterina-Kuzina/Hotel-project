@@ -23,6 +23,10 @@ const maskMap = {
   ru: "__.__.____",
 };
 
+const currency = "rub";
+const lang = "ru";
+const locale = "ru";
+
 export {
   FILTER_UP_STARS,
   FILTER_DOWN_STARS,
@@ -31,11 +35,18 @@ export {
   styleForCard,
   localeMap,
   maskMap,
+  currency,
+  lang,
+  locale,
 };
 
 export function formatPrice(price) {
   return price.toLocaleString("ru-RU");
 }
+
+export const formatDate = (data) => {
+  return data.toISOString().split("T")[0];
+};
 
 export function declinationOfNum(n, textForms) {
   const num = Math.abs(n) % 100;
@@ -60,3 +71,9 @@ export function areHotelOffersEqual(hotelA, hotelB) {
     hotelA.numberOfDays === hotelB.numberOfDays
   );
 }
+
+export const getCheckOutData = (checkIn, numberOfDays) => {
+  const checkOut = new Date(checkIn.getTime());
+  checkOut.setDate(checkOut.getDate() + parseInt(numberOfDays, 10));
+  return formatDate(checkOut);
+};

@@ -14,3 +14,10 @@
 .form {
     margin: 32px 0 0;
 }
+
+@media screen and (max-width: 493px) {
+    .wrapper {
+        max-width: 300px;
+        padding: 22px;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardList from "../card-list/card-list";
-import favouriteStyle from "./favourite-block.module.css";
+import favouriteBlockStyle from "./favourite-block.module.css";
 import { setFavouriteFilter } from "../../services/actions/hotels";
 import {
   FILTER_UP_STARS,
@@ -79,9 +79,9 @@ export default function FavouriteBlock() {
     }
   };
   return (
-    <div className={favouriteStyle.favourite}>
-      <h3 className={favouriteStyle.title}>Избранное</h3>
-      <div className={favouriteStyle.wrapper}>
+    <div className={favouriteBlockStyle.favourite}>
+      <h3 className={favouriteBlockStyle.title}>Избранное</h3>
+      <div className={favouriteBlockStyle.wrapper}>
         <FilterButton
           filterCard={filterByStartClicked}
           buttonState={mapFilterStateToStarButtonState(filterState)}
