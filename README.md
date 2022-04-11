@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Hotel project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Устал от трудовых будней? Пора подумать об отдыхе? Тогда тебе к нам!
 
-## Available Scripts
+Hotel project - это место где:
+- 🌴 ты подберешь себе отель по лучшей цене и на удобную дату
+- ✨ сохранишь лучшие отели к себе в избранное
+- 😉 также ты можешь выйти из профиля, если тебе хочется отдохнуть от отдыха  
 
-In the project directory, you can run:
+## Где найти ?
+ 1. Приложение можно найти по адресу:  https://hotel-project-kappa.vercel.app/
+ 2. Запустить локально, используя следующие команды: 
+ - npm install
+ - npm start
 
-### `npm start`
+## Как это работает ?
+- ✨ На стартовой странице тебе предстоит залогинеться. Основное и главное правило - данные должны соответсвовать правилам валидации.
+- ✨ На главной странице ты можешь выбрать подходящий тебе отель из любой локации, с любой датой заезда и даже установить количество дней,которые ты хочешь провести в этом чудесном месте.
+- ✨ Также ты можешь смело добавлять понравившиеся отели в избранное и фильтровать их по цене и рейтингу.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![login-page_1_75](https://user-images.githubusercontent.com/62074105/162806421-7f8d2723-02fd-4244-8f39-e44526ed3767.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![rsz_1hotels-page](https://user-images.githubusercontent.com/62074105/162807421-45158fdf-fa63-41d2-bc82-c34e36347f38.png)
 
-### `npm test`
+## Используемые технологии
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+- Redux-Saga
+- React Router DOM
+- Material ui
