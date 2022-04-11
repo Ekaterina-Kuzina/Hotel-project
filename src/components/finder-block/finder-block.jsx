@@ -14,6 +14,7 @@ import {
   lang,
   locale,
   getCheckOutData,
+  DAYS_IN_YEAR,
 } from "../../helper";
 import { hotelsInfo } from "../../services/actions/hotels";
 
@@ -36,16 +37,18 @@ export default function FinderBlock({
 
   const handleOnSubmmit = async (e) => {
     e.preventDefault();
-    dispatch(
-      hotelsInfo({
-        location: `${location}`,
-        checkIn: `${formatDate(checkIn)}`,
-        checkOut: getCheckOutData(checkIn, numberOfDays),
-        currency: `${currency}`,
-        lang: `${lang}`,
-        numberOfDays: `${numberOfDays}`,
-      })
-    );
+    if (numberOfDays <= DAYS_IN_YEAR) {
+      dispatch(
+        hotelsInfo({
+          location: `${location}`,
+          checkIn: `${formatDate(checkIn)}`,
+          checkOut: getCheckOutData(checkIn, numberOfDays),
+          currency: `${currency}`,
+          lang: `${lang}`,
+          numberOfDays: `${numberOfDays}`,
+        })
+      );
+    }
   };
   return (
     <div className={finderBlockStyle.finder}>
@@ -83,6 +86,7 @@ export default function FinderBlock({
           <TextField
             required
             type="number"
+            error={numberOfDays > DAYS_IN_YEAR}
             value={numberOfDays}
             fullWidth
             onChange={handleNumberOfDaysOnChange}

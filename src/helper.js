@@ -27,6 +27,8 @@ const currency = "rub";
 const lang = "ru";
 const locale = "ru";
 
+const DAYS_IN_YEAR = 365;
+
 export {
   FILTER_UP_STARS,
   FILTER_DOWN_STARS,
@@ -38,6 +40,7 @@ export {
   currency,
   lang,
   locale,
+  DAYS_IN_YEAR,
 };
 
 export function formatPrice(price) {
