@@ -2,7 +2,11 @@ import React from "react";
 import Rating from "@mui/material/Rating";
 import { useDispatch } from "react-redux";
 import cardStyle from "./card.module.css";
-import { declinationOfNum, areHotelOffersEqual } from "../../helper";
+import {
+  declinationOfNum,
+  areHotelOffersEqual,
+  formatPrice,
+} from "../../helper";
 import {
   addFavouriteHotel,
   removeFavouriteHotel,
@@ -76,9 +80,9 @@ export default function Card({
         <Rating name="read-only" value={hotelData.stars} readOnly />
         <div className={cardStyle.price}>
           <p className={cardStyle.price__text}>Price:</p>
-          <span
-            className={cardStyle.price__item}
-          >{`${hotelData.priceFrom} ₽`}</span>
+          <span className={cardStyle.price__item}>{`${formatPrice(
+            hotelData.priceFrom
+          )} ₽`}</span>
         </div>
       </div>
     </li>

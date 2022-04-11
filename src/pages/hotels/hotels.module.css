@@ -8,8 +8,7 @@
     justify-content: space-between;
 }
 
-.finder,
-.favourite {
+.finder{
     width: 360px;
     padding: 32px;
     background: var(--white);
@@ -17,11 +16,11 @@
     border-radius: 16px;
 }
 
-.favourite{
+/* .favourite{
     height: 472px;
     margin-top: 24px;
     padding: 32px 18px 32px 32px;
-}
+} */
 
 .finder__item {
     margin-bottom: 20px;
@@ -70,7 +69,7 @@
     background-size: contain;
 }
 
-.favourite__title {
+/* .favourite__title {
     margin-bottom: 22px;
     font-weight: 500;
     font-size: 24px;
@@ -80,7 +79,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-}
+} */
 
 .title{
     margin: 28px 0;

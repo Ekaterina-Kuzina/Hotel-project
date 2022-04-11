@@ -1,3 +1,4 @@
+import ruLocale from "date-fns/locale/ru";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
 import img3 from "./images/img3.png";
@@ -10,12 +11,31 @@ const FILTER_DOWN_STARS = "FILTER_DOWN_STARS";
 const FILTER_UP_PRICE = "FILTER_UP_PRICE";
 const FILTER_DOWN_PRICE = "FILTER_DOWN_PRICE";
 
+const styleForCard = {
+  card: "cardStyle",
+  favouriteCard: "favouriteCardStyle",
+};
+const localeMap = {
+  ru: ruLocale,
+};
+
+const maskMap = {
+  ru: "__.__.____",
+};
+
 export {
   FILTER_UP_STARS,
   FILTER_DOWN_STARS,
   FILTER_UP_PRICE,
   FILTER_DOWN_PRICE,
+  styleForCard,
+  localeMap,
+  maskMap,
 };
+
+export function formatPrice(price) {
+  return price.toLocaleString("ru-RU");
+}
 
 export function declinationOfNum(n, textForms) {
   const num = Math.abs(n) % 100;
