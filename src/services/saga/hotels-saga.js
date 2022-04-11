@@ -10,7 +10,7 @@ function* sagaGetHotelsInfo(params) {
     yield put(getHotelsInfo());
     const response = yield call(() => {
       return fetch(
-        `http://engine.hotellook.com/api/v2/cache.json?${new URLSearchParams({
+        `https://engine.hotellook.com/api/v2/cache.json?${new URLSearchParams({
           location: params.queryParams.location,
           checkIn: params.queryParams.checkIn,
           checkOut: params.queryParams.checkOut,
